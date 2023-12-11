@@ -1,0 +1,11 @@
+type EventsSummary {
+  id: ID!
+  upgraded: [Upgraded!]! @derivedFrom(field: "eventsSummary")
+  upgradedsCount: BigInt!
+}
+
+type Upgraded {
+  id: ID!
+  implementation: String!
+  eventsSummary: String!
+}

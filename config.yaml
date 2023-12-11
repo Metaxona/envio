@@ -1,0 +1,15 @@
+name: pegaball
+networks:
+- id: 10200
+  rpc_config:
+    url: https://rpc.ankr.com/gnosis_testnet
+  start_block: 0
+  contracts:
+  - name: PegaBallTicketStorageProxy
+    address:
+    - 0x094e5aB8A3BAC4e13c9B4a0C33bAe7E0E0B28820
+    handler: src/EventHandlers.ts
+    events:
+    - event: Upgraded(address indexed implementation)
+      requiredEntities:
+      - name: EventsSummary
