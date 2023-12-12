@@ -1,7 +1,84 @@
 type EventsSummary {
   id: ID!
+  claimDataUpdated: [ClaimDataUpdated!]! @derivedFrom(field: "eventsSummary")
+  claimDataUpdatedsCount: BigInt!
+  game: [Game!]! @derivedFrom(field: "eventsSummary")
+  gamesCount: BigInt!
+  gameDataUploaded: [GameDataUploaded!]! @derivedFrom(field: "eventsSummary")
+  gameDataUploadedsCount: BigInt!
+  initialized: [Initialized!]! @derivedFrom(field: "eventsSummary")
+  initializedsCount: BigInt!
+  roleAdminChanged: [RoleAdminChanged!]! @derivedFrom(field: "eventsSummary")
+  roleAdminChangedsCount: BigInt!
+  roleGranted: [RoleGranted!]! @derivedFrom(field: "eventsSummary")
+  roleGrantedsCount: BigInt!
+  roleRevoked: [RoleRevoked!]! @derivedFrom(field: "eventsSummary")
+  roleRevokedsCount: BigInt!
   upgraded: [Upgraded!]! @derivedFrom(field: "eventsSummary")
   upgradedsCount: BigInt!
+}
+
+type ClaimDataUpdated {
+  id: ID!
+  updater: String!
+  amount: BigInt!
+  timeUpdated: BigInt!
+  eventsSummary: String!
+}
+
+type Game {
+  id: ID!
+  gameOwner: String!
+  game_0: BigInt!
+  game_1: BigInt!
+  game_2: BigInt!
+  game_3: BigInt!
+  game_4: BigInt!
+  game_5: BigInt!
+  ticketType: BigInt!
+  ticketId: BigInt!
+  gameId: BigInt!
+  boughtDate: BigInt!
+  drawDate: BigInt!
+  eventsSummary: String!
+}
+
+type GameDataUploaded {
+  id: ID!
+  uploader: String!
+  amount: BigInt!
+  timeUploaded: BigInt!
+  eventsSummary: String!
+}
+
+type Initialized {
+  id: ID!
+  version: BigInt!
+  eventsSummary: String!
+}
+
+type RoleAdminChanged {
+  id: ID!
+  role: String!
+  previousAdminRole: String!
+  newAdminRole: String!
+  eventsSummary: String!
+}
+
+type RoleGranted {
+  id: ID!
+  role: String!
+  account: String!
+  sender: String!
+  eventsSummary: String!
+}
+
+type RoleRevoked {
+  id: ID!
+  role: String!
+  account: String!
+  sender: String!
+  eventsSummary: String!
 }
 
 type Upgraded {

@@ -10,6 +10,27 @@ networks:
     - 0x094e5aB8A3BAC4e13c9B4a0C33bAe7E0E0B28820
     handler: src/EventHandlers.ts
     events:
+    - event: ClaimDataUpdated(address indexed updater, uint256 amount, uint256 timeUpdated)
+      requiredEntities:
+      - name: EventsSummary
+    - event: Game(address indexed gameOwner, (uint8,uint8,uint8,uint8,uint8,uint8) game, uint256 ticketType, uint256 ticketId, uint256 gameId, uint256 boughtDate, uint256 drawDate)
+      requiredEntities:
+      - name: EventsSummary
+    - event: GameDataUploaded(address indexed uploader, uint256 amount, uint256 timeUploaded)
+      requiredEntities:
+      - name: EventsSummary
+    - event: Initialized(uint64 version)
+      requiredEntities:
+      - name: EventsSummary
+    - event: RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
+      requiredEntities:
+      - name: EventsSummary
+    - event: RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
+      requiredEntities:
+      - name: EventsSummary
+    - event: RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
+      requiredEntities:
+      - name: EventsSummary
     - event: Upgraded(address indexed implementation)
       requiredEntities:
       - name: EventsSummary
